@@ -1,27 +1,29 @@
+const descripcion = {
+    demand: true,
+    alias: 'c',
+    desc: 'Marca como completado la tarea por hacer'
 
+};
+ const completado = {
+     default: true,
+     alias: 'c',
+    desc: 'Marca como completado la tarea por hacer'
+
+ };
 
 const argv =require('yargs')
 .command('crear', 'Crear un elemento por hacer', {
-    descripcion: {
-        demand: true,
-        alias: 'd',
-        desc: 'Descripcion de la tarea por hacer'
-    }
+    descripcion
 })
 .command('actualizar', 'Actualiza el estado completado de una tarea', {
+    descripcion,
+    completado
+})
 
-    descripcion: {
-        demand: true,
-        alias: 'd',
-        desc: 'Descripcion de la tarea por hacer'
-    },
-    completado: {
-    default: true,
-    alias: 'c',
-    desc: 'Marca como completado o pendiente la tarea'
-    }
+    .command('borrar', 'borra una tarea', {
+        descripcion  
+ })
 
-    })
     .help()
     .argv;
 module.exports = {
